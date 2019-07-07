@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .article {
+            width: 70%;
+            text-align: center;
+            margin: 0 auto;
+            min-height: 200vh;
+        }
+
+        .article.blur {
+            filter: blur(2px)
+        }
+
+        img {
+            padding: 50px 0;
+            width: 100%;
+        }
+
+        .modal-wrap {
+            display: none;
+        }
+
+        .modal-wrap.active {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-wrap.active .modal {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 70%;
+            background-color: grey;
+            border: 3px solid black;
+        }
+
+        @media(max-width: 800px) {
+            .modal-wrap.active .modal {
+                width: 90%;
+                height: 90%;
+            }
+        }
+
+        .modal .top {
+            flex-basis: 20%;
+            background-color: cadetblue;
+        }
+
+        .modal .middle {
+            flex-grow: 1;
+            background-color: grey;
+        }
+
+        .modal .bottom {
+            flex-basis: 20%;
+            background-color: cadetblue;
+        }
+
+        span.hide {
+            font-family: arial;
+            font-size: 40px;
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            top: 0;
+            right: 0;
+            transform: translate(50%, -50%);
+            background-color: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="article">
+        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus sunt ratione quam omnis facere commodi
+            harum hic delectus nihil iste corporis, quod odit aspernatur voluptatum, esse eos odio veritatis nulla
+            asperiores quia. Recusandae, consectetur delectus magnam libero, sapiente provident nisi natus aut nihil
+            quae a molestiae accusantium, sequi nesciunt id animi debitis vero! Vel repellendus quo iste sequi, ipsam
+            quibusdam quisquam magni sunt obcaecati nulla expedita minima alias officiis blanditiis excepturi!
+            Repudiandae rerum quas assumenda placeat repellat nobis id corrupti suscipit esse aut. Esse, distinctio
+            adipisci! Dolores, tempore? Quidem soluta corporis quia delectus. Distinctio eaque, nemo molestiae minus
+            totam soluta.ż</p>
+
+        <button>Kup teraz</button>
+        <img src="zwierz.jpg" alt="">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat ipsa adipisci nesciunt nulla inventore ea,
+            fugit
+            quod odio, quis libero explicabo. Eum, aspernatur fugiat. Quod eligendi in fugit! Itaque deleniti aperiam
+            sunt
+            quia fugit eligendi veniam maxime natus impedit officia accusamus adipisci, iusto amet excepturi quod quo
+            saepe
+            explicabo consequuntur molestiae nihil autem. Illo, ipsam dicta. Officiis aliquam sunt reiciendis,
+            reprehenderit vel dolores. Consectetur nisi quibusdam accusantium error soluta eaque laudantium beatae
+            voluptatem, in pariatur, molestias facere, unde animi minima commodi atque blanditiis ullam. Sunt dolore,
+            vero
+            cum doloribus pariatur illo quisquam voluptates sint perferendis, saepe commodi, distinctio incidunt
+            officiis.</p>
+    </section>
+    <section class="modal-wrap">
+        <div class="modal">
+            <div class="top"></div>
+            <div class="middle"></div>
+            <div class="bottom"></div>
+            <span class="hide">X</span>
+        </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+    <script>
+        // $('.article button').on('click', function () {
+        //     $('.modal-wrap').addClass('active');
+        //     $('.article').addClass('blur');
+        // })
+        // $('.hide').on('click', function () {
+        //     $('.modal-wrap').removeClass('active');
+        //     $('.article').removeClass('blur');
+        // })
+        // WERSJA SKRÓCONA
+        // $('.article button, span.hide').on('click', function () {
+        //     $('.modal-wrap').toggleClass('active');
+        //     $('.article').toggleClass('blur');
+        // })
+        //WERSJA JS
+        const modal = document.querySelector('.modal-wrap');
+        const article = document.querySelector('.article');
+        const btn = document.querySelector('.article button');
+        const hider = document.querySelector('span.hide');
+
+        btn.addEventListener('click', function () {
+            modal.classList.add('active');
+            article.classList.add('blur');
+        })
+        hider.addEventListener('click', function () {
+            modal.classList.remove('active');
+            article.classList.remove('blur');
+        })
+        const items = document.querySelectorAll("button, .modal-wrap");
+    </script>
+</body>
+
+</html>
